@@ -30,6 +30,17 @@ async function getActress(id: number): Promise<Actress | null> {
   return null;
 }
 
+async function getAllActresses(): Promise<Actress[]> {
+  const response = await fetch(`http://localhost:3333/actresses`);
+  const data = await response.json();
+
+  if (Array.isArray(data) && data.every(isActress)) {
+    return data;
+  }
+
+  return [];
+}
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
   </div>

@@ -9,6 +9,12 @@ type Person = {
   image: string;
 }
 
+type Actress = Person & {
+  most_famous_movies: [string, string, string];
+  awards: string;
+  nationality: 'American' | 'British' | 'Australian' | 'Israeli-American' | 'South African' | 'French' | 'Indian' | 'Israeli' | 'Spanish' | 'South Korean' | 'Chinese';
+}
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
   </div>

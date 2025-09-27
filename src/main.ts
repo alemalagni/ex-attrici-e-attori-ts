@@ -41,6 +41,11 @@ async function getAllActresses(): Promise<Actress[]> {
   return [];
 }
 
+async function getActresses(ids: number[]): Promise<(Actress | null)[]> {
+  const promises = ids.map(id => getActress(id));
+  return Promise.all(promises);
+}
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
   </div>
